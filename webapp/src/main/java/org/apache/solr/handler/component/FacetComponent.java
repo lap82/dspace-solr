@@ -17,7 +17,17 @@
 
 package org.apache.solr.handler.component;
 
-import org.apache.lucene.queryParser.ParseException;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.util.OpenBitSet;
 import org.apache.solr.common.SolrException;
 import org.apache.solr.common.params.CommonParams;
@@ -27,13 +37,13 @@ import org.apache.solr.common.params.SolrParams;
 import org.apache.solr.common.util.NamedList;
 import org.apache.solr.common.util.SimpleOrderedMap;
 import org.apache.solr.common.util.StrUtils;
+import org.apache.solr.handler.component.ResponseBuilder;
+import org.apache.solr.handler.component.SearchComponent;
+import org.apache.solr.handler.component.ShardRequest;
+import org.apache.solr.handler.component.ShardResponse;
 import org.apache.solr.request.SimpleFacets;
 import org.apache.solr.schema.FieldType;
 import org.apache.solr.search.QueryParsing;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.*;
 
 /**
  * TODO!
@@ -578,7 +588,7 @@ public class  FacetComponent extends SearchComponent
     return "$Revision: 1152531 $";
   }
 
-  @Override
+  
   public String getSourceId() {
     return "$Id: FacetComponent.java 1152531 2011-07-31 00:43:33Z koji $";
   }
